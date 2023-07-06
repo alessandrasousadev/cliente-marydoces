@@ -42,9 +42,8 @@ public class Cliente {
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
 	
-	public Cliente(UUID idCliente, @NotBlank String nomeCompleto, @CPF String cpf, @NotBlank String endereco,
+	public Cliente(@NotBlank String nomeCompleto, @CPF String cpf, @NotBlank String endereco,
 			@NotBlank String celular, @NotNull LocalDate dataNascimento, @NotNull Boolean aceitaTermos) {
-		this.idCliente = UUID.randomUUID();
 		this.nomeCompleto = nomeCompleto;
 		this.cpf = cpf;
 		this.endereco = endereco;
