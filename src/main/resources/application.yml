@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: /marydoces-cliente/api
+    context-path: /marydocescliente/api
     
     
 spring:
