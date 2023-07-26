@@ -3,10 +3,12 @@ package br.com.marydoces.clientemarydoces.cliente.infra;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import br.com.marydoces.clientemarydoces.cliente.application.domain.Cliente;
 import br.com.marydoces.clientemarydoces.cliente.application.repository.ClienteRepository;
+import br.com.marydoces.clientemarydoces.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -32,8 +34,10 @@ public class ClienteInfraRepository implements ClienteRepository {
 	@Override
 	public Cliente buscaClienteAtravesId(UUID idCliente) {
 		log.info("[inicia] ClienteInfraRepository - buscaClienteAtravesId");
+		Cliente cliente = clienteSpringDataJPARepository.findById(idCliente)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado!"));
 		log.info("[finaliza] ClienteInfraRepository - buscaClienteAtravesId");
-		return null;
+		return cliente;
 	}
 
 }
