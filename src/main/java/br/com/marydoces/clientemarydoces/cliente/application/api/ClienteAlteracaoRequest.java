@@ -2,9 +2,6 @@ package br.com.marydoces.clientemarydoces.cliente.application.api;
 
 import java.time.LocalDate;
 
-import org.hibernate.validator.constraints.br.CPF;
-
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Value;
