@@ -3,6 +3,7 @@ package br.com.marydoces.clientemarydoces.pedido.domain;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import br.com.marydoces.clientemarydoces.pedido.application.api.PedidoRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -10,6 +11,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,4 +32,11 @@ public class Pedido {
 	
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
+	
+	public Pedido(UUID idCliente, @Valid PedidoRequest pedidoRequest) {
+		this.idClientePedido = idCliente;
+		this.doce = pedidoRequest.getDoce();
+		this.quantidade = pedidoRequest.getQuantidade();
+		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
+		}
 }
