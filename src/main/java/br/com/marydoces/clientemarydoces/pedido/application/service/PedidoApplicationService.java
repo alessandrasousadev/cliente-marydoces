@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import br.com.marydoces.clientemarydoces.cliente.application.service.ClienteService;
+import br.com.marydoces.clientemarydoces.pedido.application.api.PedidoClienteDetalhadoResponse;
 import br.com.marydoces.clientemarydoces.pedido.application.api.PedidoClienteListResponse;
 import br.com.marydoces.clientemarydoces.pedido.application.api.PedidoRequest;
 import br.com.marydoces.clientemarydoces.pedido.application.api.PedidoResponse;
@@ -37,6 +38,13 @@ public class PedidoApplicationService implements PedidoService {
 		List<Pedido> pedidosDoCliente = pedidoRepository.buscaPedidosDoClienteComId(idCliente);
 		log.info("[finaliza] PedidoApplicationService - buscaPedidosDoClienteComId");
 		return PedidoClienteListResponse.converte(pedidosDoCliente);
+	}
+
+	@Override
+	public PedidoClienteDetalhadoResponse buscaPedidoDoClienteComId(UUID idCliente, UUID idPedido) {
+		log.info("[inicia] PedidoApplicationService - buscaPedidoDoClienteComId");
+		log.info("[finaliza] PedidoApplicationService - buscaPedidoDoClienteComId");
+		return null;
 	}
 
 }
