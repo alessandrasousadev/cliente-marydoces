@@ -1,8 +1,10 @@
 package br.com.marydoces.clientemarydoces.pedido.application.api;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,5 +21,10 @@ public interface PedidoAPI {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	PedidoResponse postPedido(@PathVariable UUID idCliente,
 			@Valid @RequestBody PedidoRequest pedidoRequest);
+	
+	@GetMapping
+	@ResponseStatus(code = HttpStatus.OK)
+	List<PedidoClienteListResponse> getPedidosDoClienteComId(@PathVariable UUID idCliente);
+	
 	
 }
