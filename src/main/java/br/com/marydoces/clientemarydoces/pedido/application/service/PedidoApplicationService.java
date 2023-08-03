@@ -1,10 +1,12 @@
 package br.com.marydoces.clientemarydoces.pedido.application.service;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
 import br.com.marydoces.clientemarydoces.cliente.application.service.ClienteService;
+import br.com.marydoces.clientemarydoces.pedido.application.api.PedidoClienteListResponse;
 import br.com.marydoces.clientemarydoces.pedido.application.api.PedidoRequest;
 import br.com.marydoces.clientemarydoces.pedido.application.api.PedidoResponse;
 import br.com.marydoces.clientemarydoces.pedido.domain.Pedido;
@@ -26,6 +28,14 @@ public class PedidoApplicationService implements PedidoService {
 		Pedido pedido = pedidoRepository.salvaPedido(new Pedido(idCliente, pedidoRequest));
 		log.info("[finaliza] PedidoApplicationService - criaPedido");
 		return new PedidoResponse(pedido.getIdPedido());
+	}
+
+	@Override
+	public List<PedidoClienteListResponse> buscaPedidosDoClienteComId(UUID idCliente) {
+		log.info("[inicia] PedidoApplicationService - buscaPedidosDoClienteComId");
+		clienteService.buscaClienteAtravesId(idCliente);
+		log.info("[finaliza] PedidoApplicationService - buscaPedidosDoClienteComId");
+		return null;
 	}
 
 }
