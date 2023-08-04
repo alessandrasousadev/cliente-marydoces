@@ -23,7 +23,7 @@ public class PedidoClienteListResponse {
 	}
 	
 	public PedidoClienteListResponse(Pedido pedido) {
-		this.idPedido = pedido.getIdClientePedido();
+		this.idPedido = pedido.getIdPedido();
 		this.doce = pedido.getDoce();
 		this.quantidade = pedido.getQuantidade();
 		this.dataDaEncomenda = pedido.getDataDaEncomenda();
