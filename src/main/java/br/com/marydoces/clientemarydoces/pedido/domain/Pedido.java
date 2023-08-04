@@ -1,5 +1,6 @@
 package br.com.marydoces.clientemarydoces.pedido.domain;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -29,6 +30,7 @@ public class Pedido {
 	@Enumerated(EnumType.STRING)
 	private Doce doce;
 	private int quantidade;
+	private LocalDate dataDaEncomenda;
 	
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
@@ -37,6 +39,7 @@ public class Pedido {
 		this.idClientePedido = idCliente;
 		this.doce = pedidoRequest.getDoce();
 		this.quantidade = pedidoRequest.getQuantidade();
+		this.dataDaEncomenda = pedidoRequest.getDataDaEncomenda();
 		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
 		}
 }

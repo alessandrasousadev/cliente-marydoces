@@ -1,5 +1,6 @@
 package br.com.marydoces.clientemarydoces.pedido.application.api;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -13,6 +14,7 @@ public class PedidoClienteListResponse {
 	private UUID idPedido;
 	private Doce doce;
 	private int quantidade;
+	private LocalDate dataDaEncomenda;
 	
 	public static List<PedidoClienteListResponse> converte(List<Pedido> pedidosDoCliente) {
 		return pedidosDoCliente.stream()
@@ -24,5 +26,6 @@ public class PedidoClienteListResponse {
 		this.idPedido = pedido.getIdClientePedido();
 		this.doce = pedido.getDoce();
 		this.quantidade = pedido.getQuantidade();
+		this.dataDaEncomenda = pedido.getDataDaEncomenda();
 	}
 }
